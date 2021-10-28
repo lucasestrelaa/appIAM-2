@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button *ngIf="usuarios.tipoUser == 3"></ion-back-button>
+        <ion-menu-button *ngIf="usuarios.tipoUser == 1"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Enquetes Finalizadas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="back">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngIf="!enquetes.length">
+    <ion-item *ngFor="let enquetes of [0,1,2,3]">
+      <!--<ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>-->
+    
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngFor="let enquete of enquetes" >
+    <ion-item-sliding *ngIf="enquete.vigente">
+      <ion-item buttons [routerLink]="['/res-enquete', enquete.id]">
+        <!--<ion-avatar slot="start">
+          <img [src]="enquete.foto">
+        </ion-avatar>-->
+
+        <ion-label>
+          {{ enquete.titulo }}
+          
+          <!--<p>{{ enquete.data }}</p>
+          <p *ngFor="let opcao of opcoes">{{ enquete.texto }}</p>-->
+        </ion-label>
+
+       <ion-note color="primary" slot="end" *ngIf="enquete.id">{{ enquete.opcao1 }}</ion-note>
+       <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+

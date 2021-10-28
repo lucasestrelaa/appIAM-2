@@ -1,0 +1,18 @@
+ion-app{
+    --background: black;
+}
+ion-menu {
+    --ion-background-color: #000000;
+    --ion-text-color: #fff;
+  
+    ion-toolbar {
+      --background: #000000;
+    }
+  
+    ion-list {/* optional, but it needs when you use gradient as a background color.*/
+      background: transparent;
+    }
+    ion-icon{
+        color: #ffffff;
+    }
+  }

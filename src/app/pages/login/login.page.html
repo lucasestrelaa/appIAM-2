@@ -1,0 +1,86 @@
+<ion-content class="swiper-no-swiping">
+  <div class="container top" [hidden]="keyboard.isVisible">
+    
+  </div>
+  <ion-slides>
+    <!--<ion-slide>
+      <div class="slide-inner ion-padding">
+        <span>Login</span>
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="email" placeholder="E-mail" [(ngModel)]="userLogin.email"></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="password" placeholder="senha" [(ngModel)]="userLogin.password"></ion-input>
+        </ion-item>
+        //Comentario <!
+        <ion-item>
+          <re-captcha (resolved)="captchaResolved($event)" siteKey="6LeqT_0UAAAAABEHvQiwQOyYAxOvA_kSTLUDvJ_1"></re-captcha>
+        </ion-item> ->//Fim do comentário
+              
+        <ion-button  class="ion-margin-top" (click)="login()" color="light" expand="block"> <![disabled]="!captchaPassed"->
+          Entrar
+        </ion-button>
+      </div>
+    </ion-slide>-->
+    <ion-slide>
+      <!--<div class="slide-inner ion-padding">
+        <span>Cadastro</span>
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="email" placeholder="E-mail" [(ngModel)]="userRegister.email"></ion-input>
+          
+        </ion-item>
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-input type="password" placeholder="senha" [(ngModel)]="userRegister.password"></ion-input>
+        </ion-item>
+        <ion-button class="ion-margin-top" (click)="register()" color="light" expand="block">
+          Cadastrar
+        </ion-button>-->
+      <div class="slide-inner ion-padding">
+        <div [hidden]="user">
+          <ion-label size="8">Análise Militar</ion-label> <br>
+          <span>Login</span>
+          
+          <ion-item class="ion-margin-top ion-size-6" hidden>
+            <ion-input type="text" [(ngModel)]="phoneNumber.contry" class="input" placeholder="55" maxlength="2" readonly>
+            </ion-input>
+            
+          </ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" color="light"> <ion-input type="text" [(ngModel)]="phoneNumber.area" class="input" placeholder="DDD" maxlength="2">
+              </ion-input>
+            </ion-col>
+            <ion-col size="9" color="light">
+            <ion-input type="text" [(ngModel)]="phoneNumber.number" class="input" placeholder="9 digitos" maxlength="9">
+            </ion-input>
+            </ion-col>
+            </ion-row>
+          </ion-grid>
+          
+          <div id="recaptcha-container" class="recaptcha"></div>
+          <ion-button (click)="sendLoginCode()" expand="block" size="small">Enviar Sms</ion-button>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide-inner ion-padding">
+        <div [hidden]="user">
+          <ion-label size="12">Análise Militar</ion-label> <br>
+          <ion-label for="phone" size="10">Entre com o seu cógido de verificação</ion-label>
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-input expand="block" size="small" type="text" [(ngModel)]="verificationCode" class="input"
+              placeholder="Digite o seu código de verificação" maxlength="6" >
+            </ion-input>
+          </ion-item>
+          <ion-button (click)="verificationLoginCode()">Verificar</ion-button>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <div class="ocean">
+
+    <div class="container bottom ion-text-center" [hidden]="keyboard.isVisible">
+      <span>Instituto de Análise Militar</span>
+    </div>
+  </div>
+</ion-content>

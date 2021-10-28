@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Adicionar RA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="back">
+  <ion-list>
+    <ion-item>
+      <ion-input inputmode="text" [(ngModel)]="ra.abreviacao" placeholder="Nome da RA"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [(ngModel)]="ra.numeroRA" placeholder="Número da RA"></ion-textarea>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="salvarRA()" expand="block">
+      Salvar RA
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+

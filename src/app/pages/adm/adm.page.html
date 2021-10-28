@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>adm</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="back">
+  <ion-card>
+    <!--<ion-item>
+      <ion-col size="12">
+        <ion-button routerLink="/adm-ra" expand="block">
+          Add RA
+        </ion-button>
+      </ion-col>
+    </ion-item>-->
+    <ion-content>
+      <ion-fab vertical="bottom" routerLink="/adm-ra" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <ion-list *ngIf="!ras.length">
+        <ion-item *ngFor="let enquetes of [0,1,2,3]">
+          <ion-avatar slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="ras.length">
+        <ion-item-sliding *ngFor="let ra of ras">
+          <ion-item buttons [routerLink]="['/adm-ra', ra.id]">
+
+            <ion-label>
+              {{ ra.abreviacao }}
+
+              <p>{{ ra.numeroRA }}</p>
+              <!--<p *ngFor="let opcao of opcoes">{{ enquete.texto }}</p>-->
+            </ion-label>
+
+
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="deleteRA(ra.id)">
+              <ion-icon slot="top" name="trash"></ion-icon>
+              Excluir
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-content>
+  </ion-card>
+  <ion-card>
+
+    <!--<ion-item class="item-class">
+      <ion-col size="12">
+        <ion-button routerLink="/adm-profissao" expand="block">
+          Add Profissao
+        </ion-button>
+      </ion-col>
+    </ion-item>-->
+    <ion-content class="item-list">
+      <ion-fab vertical="bottom" routerLink="/adm-profissao" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <ion-list *ngIf="!profissoes.length">
+        <ion-item class="item-list-card" *ngFor="let profissoes of [0,1,2,3]">
+          <ion-avatar slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="profissoes.length">
+        <ion-item-sliding *ngFor="let profissao of profissoes">
+          <ion-item buttons [routerLink]="['/adm-profissao', profissao.id]">
+
+            <ion-label>
+              {{ profissao.abreviacao }}
+
+              <p>{{ profissao.descricao }}</p>
+              <!--<p *ngFor="let opcao of opcoes">{{ enquete.texto }}</p>-->
+            </ion-label>
+
+
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="deleteProfissao(profissao.id)">
+              <ion-icon slot="top" name="trash"></ion-icon>
+              Excluir
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-content>
+
+  </ion-card>
+</ion-content>

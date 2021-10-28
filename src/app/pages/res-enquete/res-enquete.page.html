@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button *ngIf="usuarios.tipoUser == 3"></ion-back-button>
+        <ion-menu-button *ngIf="usuarios.tipoUser == 1"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Resultados das Enquetes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="back">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngIf="enquete.vigente">
+    <ion-card-header>
+      <ion-card-title>
+        {{ enquete.titulo }}
+      </ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ enquete.texto }}
+    </ion-card-content>
+  </ion-card>
+   
+      <ion-list>
+        <ion-list-header>
+          <ion-label>{{ enquete.opcao1 }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-progress-bar value="{{ v1Flot }}"></ion-progress-bar>
+          <ion-badge slot="end">{{ v1Flot }}</ion-badge>
+        </ion-item>
+      </ion-list>
+  
+      <ion-list>
+        <ion-list-header>
+          <ion-label>{{ enquete.opcao2 }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-progress-bar value="{{ v2Flot }}"></ion-progress-bar>
+          <ion-badge slot="end">{{ v2Flot }}</ion-badge>
+        </ion-item>
+      </ion-list>
+  
+      <ion-list>
+        <ion-list-header>
+          <ion-label>{{ enquete.opcao3 }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-progress-bar value="{{v3Flot}}"></ion-progress-bar>
+          <ion-badge slot="end">{{ v3Flot }}</ion-badge>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>
+          <ion-label>{{ enquete.opcao4 }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-progress-bar value="{{v4Flot}}"></ion-progress-bar>
+          <ion-badge slot="end">{{ v4Flot }}</ion-badge>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>
+          <ion-label>{{ enquete.opcao5 }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-progress-bar value="{{v5Flot}}"></ion-progress-bar>
+          <ion-badge slot="end">{{ v5Flot }}</ion-badge>
+        </ion-item>
+      </ion-list>
+
+
+</ion-content>

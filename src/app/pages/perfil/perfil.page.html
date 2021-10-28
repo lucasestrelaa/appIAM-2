@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-back-button *ngIf="usuarios.tipoUser == 3"></ion-back-button>
+      <ion-menu-button *ngIf="usuarios.tipoUser == 1"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="back">
+  <div class="fundo">
+  <ion-item>
+    <ion-label>Nome</ion-label>
+    <ion-input type="text" placeholder="Nome" [(ngModel)]="usuarios.nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input type="text" placeholder="E-mail" [(ngModel)]="usuarios.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>RA</ion-label>
+    <ion-select [(ngModel)]="usuarios.RA">
+      <ion-select-option *ngFor="let ra of ras" value="{{ra.id}}">{{ ra.abreviacao }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Profissão</ion-label>
+    <ion-select [(ngModel)]="usuarios.profissao">
+      <ion-select-option *ngFor="let profissao of profissoes" value="{{profissao.id}}">{{ profissao.abreviacao }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+  <ion-label>Telefone</ion-label>
+    <ion-input type="text" placeholder="telefone" [(ngModel)]="usuarios.phoneNumber"></ion-input>
+  </ion-item>
+  <ion-item [hidden]="user.tipoUser != 1">
+    <ion-label>Tipo Usuário</ion-label>
+      <ion-input type="text" placeholder="telefone" [(ngModel)]="usuarios.tipoUser"></ion-input>
+    </ion-item>
+  </div>
+  <div class="ocean"> 
+    <div class="waves"></div>
+   </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="block" (click)="salvarUsuario()">Salvar Usuário</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+

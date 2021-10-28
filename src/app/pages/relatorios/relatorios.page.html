@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!--<ion-back-button *ngIf="usuarios.tipoUser == 3"></ion-back-button>-->
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Relatórios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="back">
+  <ion-select (ionChange)="contEnquete()" placeholder="Selecione uma enquete" [(ngModel)]="idContVotoEnquete">
+    <ion-select-option *ngFor="let enquete of enquetes" value="{{ enquete.id }}">{{ enquete.titulo}}</ion-select-option>
+  </ion-select>
+  <ion-card>
+    <ion-card-title for="4">Informações sobre a enquete</ion-card-title>
+    <ion-card-content color="dark">
+      Enunciado da enquete: {{ enquete.texto }} <br>
+      Período da enquete: {{ enquete.dataInicio }} à {{ enquete.dataFinal }} <br>
+      Total de respostas: {{ contagem }} 
+    </ion-card-content>
+    
+  </ion-card>
+  <ion-card [hidden]="!contVoto">
+    <ion-card-title for="4">Relatório quanto à enquete</ion-card-title>
+    <div style="display: block; ">
+      <canvas id="myChart"></canvas>
+    </div>
+  </ion-card>
+  <ion-select (ionChange)="contEnquete2()" placeholder="Selecione uma enquete" [(ngModel)]="idContVotoEnqueteRA">
+    <ion-select-option *ngFor="let contVotoRa of contVotoRasCombo" value="{{ contVotoRa.idRa }}">{{ contVotoRa.nomeRa }}</ion-select-option>
+  </ion-select>
+  <ion-card [hidden]="!contVoto">
+    <ion-card-title for="4">Relatório quanto à RA</ion-card-title>
+    <div style="display: block; ">
+      <canvas id="myChart2"></canvas>
+    </div>
+  </ion-card>
+  <ion-select (ionChange)="contEnquete3()" placeholder="Selecione uma enquete" [(ngModel)]="idContVotoEnqueteProfissao">
+    <ion-select-option *ngFor="let contVotoProfissao of contVotoProfissoesCombo" value="{{ contVotoProfissao.idProfissao }}">{{ contVotoProfissao.nomeProfissao }}</ion-select-option>
+  </ion-select>
+  <ion-card [hidden]="!contVoto">
+    <ion-card-title for="4">Relatório quanto à Profissão</ion-card-title>
+    <div style="display: block; ">
+      <canvas id="myChart3"></canvas>
+    </div>
+  </ion-card>
+
+</ion-content>

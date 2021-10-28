@@ -1,0 +1,22 @@
+ion-toolbar{
+    --background: #ffffff;
+    --color: #000000;
+}
+.back{
+    --background: hsl(0, 0%, 100%);
+    --color: rgb(0, 0, 0);
+    ion-select{
+        --background: #fdfdfd;
+    }
+    ion-select-option{
+        --color:rgb(0, 0, 0);
+        --background: #fdfdfd;
+    }
+    ion-card{
+        --background: transparent;
+        --color: #fff;
+        canvas{
+            color: #fff;
+        }
+    }
+}

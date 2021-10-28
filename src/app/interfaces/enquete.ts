@@ -1,0 +1,15 @@
+export interface Enquete {
+    id?: string,
+    titulo?: string,
+    texto?: string,
+    opcao1?: string,
+    opcao2?: string,
+    opcao3?: string,
+    opcao4?: string,
+    opcao5?: string,
+    foto?: string,
+    userId?: string,
+    vigente?: boolean,
+    dataInicio?: Date,
+    dataFinal?: Date,
+}

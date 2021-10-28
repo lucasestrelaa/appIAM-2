@@ -1,0 +1,9 @@
+{
+  "name": "filozinha",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "d020a0f4"
+}

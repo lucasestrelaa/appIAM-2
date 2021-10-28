@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-buttons slot="start" >
+      <!--<ion-back-button *ngIf="usuarios.tipoUser == 3"></ion-back-button>-->
+      <ion-menu-button *ngIf="usuarios.tipoUser == 1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <a href="https://ionicframework.com/docs/api/select#object-value-references" target="_blank">Instituto Análise
+        Militar</a>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentActionSheet()">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+        <ion-badge class="bagde-icon"></ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="back">
+ 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+   
+      <ion-label class="nome"> Bem vindo(a) {{ usuarios.nome }} </ion-label>
+    
+ 
+  <div class="fundo">
+
+    
+    
+
+
+
+
+    <ion-list>
+      <ion-item>
+        <!--<ion-label>Cupons</ion-label>
+      <ion-badge slot="start" color="success">{{ qntCuponsUser }}</ion-badge>-->
+        <ion-button color="success" expand="block">{{ qntCuponsUser }} Cupons </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-card>
+      <ion-item [routerLink]="['/enquete-semanal']" id="enquete" >
+        <ion-icon name="clipboard-outline" slot="start"></ion-icon>
+        <ion-label>Enquete</ion-label>
+      </ion-item>
+      <ion-card-subtitle>
+        {{labelEnquete}}
+      </ion-card-subtitle>
+    </ion-card>
+
+    <ion-card>
+      <ion-item [routerLink]="['/enquete-finalizada']">
+        <ion-icon name="checkmark-outline" slot="start"></ion-icon>
+        <ion-label>Enquetes Finalizadas</ion-label>
+      </ion-item>
+      <ion-item [routerLink]="['/res-sorteios']">
+        <ion-icon name="gift-outline" slot="start"></ion-icon>
+        <ion-label>Resultados dos sorteios</ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+ <div class="ocean"> 
+   <div class="waves"></div>
+  </div>
+
+</ion-content>
